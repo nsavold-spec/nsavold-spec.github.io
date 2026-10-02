@@ -3,97 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. Savold's Homepage - Information</title>
+    <title>Mr. Savold's Portal | Mr. Savold's Class</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             color: #2c3e50;
         }
 
         header {
-            text-align: center;
             background-color: #2c3e50;
             color: white;
-            padding: 24px;
+            padding: 20px 24px;
             border-radius: 12px;
             margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 2rem;
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .home-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.1s ease;
+        }
+
+        .home-btn:hover, .home-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #ffffff;
+        }
+
+        /* Full Width 2-Column Grid (Covers 100% width across 2 equal columns) */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .card {
-            background-color: #ffffff;
-            padding: 24px;
+            background-color: white;
+            padding: 22px;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            line-height: 1.6;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 8px;
+            font-size: 1.35rem;
+        }
+
+        .focus-banner {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.1rem;
         }
 
-        .btn-group {
+        .focus-banner.green-banner {
+            background-color: #eef9f1;
+            border: 2px solid #2ecc71;
+            color: #1e7e34;
+        }
+
+        .focus-banner.blue-banner {
+            background-color: #ebf5fb;
+            border: 2px solid #3498db;
+            color: #1b4f72;
+        }
+
+        .focus-banner.purple-banner {
+            background-color: #f5eeed;
+            border: 2px solid #9b59b6;
+            color: #512e5f;
+        }
+
+        .notes-box {
+            background-color: #fff9db;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .credential-box {
+            background-color: #eef2f5;
+            border-left: 5px solid #3498db;
+            padding: 16px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .credential-box code {
+            background-color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #bdc3c7;
+            font-family: monospace;
+            font-weight: bold;
+            color: #d35400;
+            font-size: 1.15rem;
+        }
+
+        .link-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .link-btn {
             display: block;
+            color: white;
             text-decoration: none;
-            padding: 16px 20px;
+            padding: 14px 20px;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: bold;
             text-align: center;
-            color: #ffffff;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
         }
 
-        .blue {
-            background-color: #3498db;
+        .link-btn:hover, .link-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #f1c40f;
         }
 
-        .blue:hover, .blue:focus {
-            background-color: #2980b9;
+        .link-btn.red { background-color: #e74c3c; }
+        .link-btn.red:hover { background-color: #c0392b; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
+
+        .link-btn.yellow { background-color: #f1c40f; color: #2c3e50; }
+        .link-btn.yellow:hover { background-color: #f39c12; color: #ffffff; }
+
+        .link-btn.green { background-color: #2ecc71; }
+        .link-btn.green:hover { background-color: #27ae60; }
+
+        .link-btn.blue { background-color: #3498db; }
+        .link-btn.blue:hover { background-color: #2980b9; }
+
+        .link-btn.indigo { background-color: #3f51b5; }
+        .link-btn.indigo:hover { background-color: #303f9f; }
+
+        .link-btn.violet { background-color: #9b59b6; }
+        .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .green {
-            background-color: #2ecc71;
+        .checklist li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f5;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .green:hover, .green:focus {
-            background-color: #27ae60;
+        .checklist input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
         }
-    </style>
+</style>
 </head>
 <body>
 
     <header>
         <h1>Welcome to Mr. Savold's Portal</h1>
+        <a href="../index.html" class="home-btn">🏠 Main Portal</a>
     </header>
 
-    <div class="card">
-        <p>👋 Hello students, aides, parents, and teachers!</p>
-        <p>
-            This is Mr. Savold's homepage. If you are looking for your own individual portal, 
-            you can log in using the credentials corresponding to your name on the login page.
-        </p>
-        <div class="credential-box">
-            <strong>Username:</strong> FirstnameLastinitial<br>
-            <strong>Password:</strong> FirstLast123
+    <div class="portal-grid">
+
+        <!-- Top Banner & Notes (Spans full width across top) -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="focus-banner blue-banner">👨‍🏫 <strong>Mr. Savold's Homepage & Portal Information</strong></div>
+            <h2>📝 Notes from Mr. Savold</h2>
+            <div class="notes-box">
+                <p>👋 Hello students, aides, parents, and teachers! This is Mr. Savold's homepage. If you are looking for your own individual portal, you can log in on the main page using your credentials.</p>
+            </div>
         </div>
-        <div class="btn-group">
-            <a href="https://nsavold-spec.github.io/" class="link-btn blue">🏠 Return to Main Homepage / Login</a>
-            <a href="https://www.donttap.com/" target="_blank" rel="noopener noreferrer" class="link-btn green">🎮 Play Don't Tap (Mr. Savold's Favorite Minigame!)</a>
+
+        <!-- Left Column Card (50% Width on Desktop) -->
+        <div class="card">
+            <h2>ℹ️ Portal Information & Credentials</h2>
+            <div class="credential-box">
+                <strong>Username Format:</strong> <code>FirstnameLastinitial</code> (e.g. <code>NickS</code>, <code>TonyB</code>)<br><br>
+                <strong>Password Format:</strong> <code>FirstLast123</code> or assigned password
+            </div>
+            <h2>🚀 Quick Links</h2>
+            <div class="link-list">
+                <a href="../index.html" class="link-btn blue">🏠 Return to Main Homepage / Login</a>
+                <a href="https://www.donttap.com/" target="_blank" rel="noopener noreferrer" class="link-btn green">🎮 Play Don't Tap (Mr. S Favorite!)</a>
+                <a href="../submit.html" class="link-btn violet">✍️ View Message Submissions</a>
+            </div>
         </div>
+
+        <!-- Right Column Checklist Card (50% Width on Desktop) -->
+        <div class="card">
+            <h2>📋 Teacher Checklist</h2>
+            <ul class="checklist">
+                <li><input type="checkbox" id="task1"><label for="task1">Check daily class rosters</label></li>
+<li><input type="checkbox" id="task2"><label for="task2">Verify student portal logins</label></li>
+<li><input type="checkbox" id="task3"><label for="task3">Review incoming messages</label></li>
+
+            </ul>
+        </div>
+
     </div>
 
 </body>

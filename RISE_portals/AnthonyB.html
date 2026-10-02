@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tony B.'s Learning Portal | Mr. Savold's Class</title>
+    <title>Anthony B.'s Learning Portal | Mr. Savold's Class</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
             padding: 20px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            color: #2c3e50;
         }
 
         header {
@@ -44,10 +45,17 @@
             outline: 3px solid #ffffff;
         }
 
+        /* Full Width 2-Column Grid (Covers 100% width across 2 equal columns) */
         .portal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .card {
@@ -65,19 +73,33 @@
             font-size: 1.35rem;
         }
 
-        /* Highlighted Typing Badge / Banner */
         .focus-banner {
-            background-color: #eef9f1;
-            border: 2px solid #2ecc71;
             border-radius: 8px;
             padding: 12px 16px;
             margin-bottom: 15px;
             font-weight: bold;
-            color: #1e7e34;
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 1.1rem;
+        }
+
+        .focus-banner.green-banner {
+            background-color: #eef9f1;
+            border: 2px solid #2ecc71;
+            color: #1e7e34;
+        }
+
+        .focus-banner.blue-banner {
+            background-color: #ebf5fb;
+            border: 2px solid #3498db;
+            color: #1b4f72;
+        }
+
+        .focus-banner.purple-banner {
+            background-color: #f5eeed;
+            border: 2px solid #9b59b6;
+            color: #512e5f;
         }
 
         .notes-box {
@@ -92,7 +114,7 @@
 
         .credential-box {
             background-color: #eef2f5;
-            border-left: 5px solid #2ecc71;
+            border-left: 5px solid #3498db;
             padding: 16px;
             margin: 15px 0;
             border-radius: 6px;
@@ -135,6 +157,15 @@
             outline: 3px solid #f1c40f;
         }
 
+        .link-btn.red { background-color: #e74c3c; }
+        .link-btn.red:hover { background-color: #c0392b; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
+
+        .link-btn.yellow { background-color: #f1c40f; color: #2c3e50; }
+        .link-btn.yellow:hover { background-color: #f39c12; color: #ffffff; }
+
         .link-btn.green { background-color: #2ecc71; }
         .link-btn.green:hover { background-color: #27ae60; }
 
@@ -167,41 +198,36 @@
             height: 22px;
             cursor: pointer;
         }
-    </style>
+</style>
 </head>
 <body>
 
     <header>
-        <h1>👋 Welcome, Tony B.!</h1>
+        <h1>👋 Welcome, Anthony B.!</h1>
         <a href="../index.html" class="home-btn">🏠 Main Portal</a>
     </header>
 
     <div class="portal-grid">
 
-        <!-- Banner & Notes -->
+        <!-- Top Banner & Notes (Spans full width across top) -->
         <div class="card" style="grid-column: 1 / -1;">
-            <div class="focus-banner">
-                🎯 <strong>Primary Focus: Keyboarding & Typing Practice</strong>
-            </div>
+            <div class="focus-banner green-banner">🎯 <strong>Primary Focus: Keyboarding & Typing Practice (Level 2)</strong></div>
             <h2>📝 Notes from Mr. Savold</h2>
             <div class="notes-box">
-                <p><strong>Today's Goal:</strong> Focus on keyboarding! An aide or teacher can log you into your Typing Club account below.</p>
-                <p><em>Goal: Complete 15 minutes of Typing Club, then try KidsType or Monkey Type!</em></p>
+                <p><strong>Today's Goal:</strong> Focus on keyboarding! An aide or teacher can log you into your Typing Club account below.</p><p><em>Goal: Complete 15 minutes of Typing Club, then try KidsType or Monkey Type!</em></p>
             </div>
         </div>
 
-        <!-- Aide Credentials & Typing Links -->
+        <!-- Left Column Card (50% Width on Desktop) -->
         <div class="card">
-            <h2>ℹ️ Typing Login (Aides & Teachers)</h2>
+            <h2>ℹ️ Typing Login & Links</h2>
             <p style="margin-top: 0; color: #555;">Use these credentials to log Tony into his Typing Club account:</p>
-
             <div class="credential-box">
                 <strong>Username / Email:</strong><br>
                 <code>nichsavo+Tony@gmail.com</code><br><br>
                 <strong>Password:</strong><br>
                 <code>Tony123</code>
             </div>
-
             <h2>⌨️ Tony's Typing Links</h2>
             <div class="link-list">
                 <a href="https://edclub.com/typingclub" target="_blank" rel="noopener noreferrer" class="link-btn green">⌨️ Open Typing Club</a>
@@ -211,26 +237,15 @@
             </div>
         </div>
 
-        <!-- Checklist -->
+        <!-- Right Column Checklist Card (50% Width on Desktop) -->
         <div class="card">
             <h2>✅ Today's Checklist</h2>
             <ul class="checklist">
-                <li>
-                    <input type="checkbox" id="task1">
-                    <label for="task1">Log into Typing Club with aide support</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task2">
-                    <label for="task2">Complete 15 minutes of typing lessons</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task3">
-                    <label for="task3">Practice on KidsType or Monkey Type</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task4">
-                    <label for="task4">Send Mr. Savold a quick message!</label>
-                </li>
+                <li><input type="checkbox" id="task1"><label for="task1">Log into Typing Club with aide support</label></li>
+<li><input type="checkbox" id="task2"><label for="task2">Complete 15 minutes of typing lessons</label></li>
+<li><input type="checkbox" id="task3"><label for="task3">Practice on KidsType or Monkey Type</label></li>
+<li><input type="checkbox" id="task4"><label for="task4">Send Mr. Savold a quick message!</label></li>
+
             </ul>
         </div>
 
