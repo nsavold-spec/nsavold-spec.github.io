@@ -11,7 +11,6 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            color: #2c3e50;
         }
 
         header {
@@ -45,7 +44,6 @@
             outline: 3px solid #ffffff;
         }
 
-        /* Full Width 2-Column Grid (Covers 100% width across 2 equal columns) */
         .portal-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -74,32 +72,17 @@
         }
 
         .focus-banner {
+            background-color: #eef9f1;
+            border: 2px solid #2ecc71;
             border-radius: 8px;
             padding: 12px 16px;
             margin-bottom: 15px;
             font-weight: bold;
+            color: #1e7e34;
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 1.1rem;
-        }
-
-        .focus-banner.green-banner {
-            background-color: #eef9f1;
-            border: 2px solid #2ecc71;
-            color: #1e7e34;
-        }
-
-        .focus-banner.blue-banner {
-            background-color: #ebf5fb;
-            border: 2px solid #3498db;
-            color: #1b4f72;
-        }
-
-        .focus-banner.purple-banner {
-            background-color: #f5eeed;
-            border: 2px solid #9b59b6;
-            color: #512e5f;
         }
 
         .notes-box {
@@ -157,15 +140,6 @@
             outline: 3px solid #f1c40f;
         }
 
-        .link-btn.red { background-color: #e74c3c; }
-        .link-btn.red:hover { background-color: #c0392b; }
-
-        .link-btn.orange { background-color: #e67e22; }
-        .link-btn.orange:hover { background-color: #d35400; }
-
-        .link-btn.yellow { background-color: #f1c40f; color: #2c3e50; }
-        .link-btn.yellow:hover { background-color: #f39c12; color: #ffffff; }
-
         .link-btn.green { background-color: #2ecc71; }
         .link-btn.green:hover { background-color: #27ae60; }
 
@@ -177,6 +151,9 @@
 
         .link-btn.violet { background-color: #9b59b6; }
         .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
 
         .checklist {
             list-style: none;
@@ -198,7 +175,7 @@
             height: 22px;
             cursor: pointer;
         }
-</style>
+    </style>
 </head>
 <body>
 
@@ -209,35 +186,50 @@
 
     <div class="portal-grid">
 
-        <!-- Top Banner & Notes (Spans full width across top) -->
+        <!-- Banner & Notes -->
         <div class="card" style="grid-column: 1 / -1;">
-            <div class="focus-banner purple-banner">🚀 <strong>Primary Focus: Vocational Preparation & Independent Computer Skills (Level 3)</strong></div>
+            <div class="focus-banner">
+                🎯 <strong>Primary Focus: Keyboarding & Independent Learning</strong>
+            </div>
             <h2>📝 Notes from Mr. Savold</h2>
             <div class="notes-box">
-                <p><strong>Today's Goal:</strong> Independent typing practice, messaging, and digital tasks.</p>
+                <p><strong>Today's Goal:</strong> Focus on keyboarding accuracy and independent digital exploration!</p>
+                <p><em>Complete your typing requirements first.</em></p>
             </div>
         </div>
 
-        <!-- Left Column Card (50% Width on Desktop) -->
+        <!-- Quick Links Column (50% Width) -->
         <div class="card">
-            <h2>🚀 Natalia's Quick Links</h2>
+            
+            <h2>🚀 Natalia L. A.'s Quick Links</h2>
             <div class="link-list">
-                <a href="https://edclub.com/typingclub" target="_blank" rel="noopener noreferrer" class="link-btn green">⌨️ Typing Club</a>
-                <a href="https://monkeytype.com" target="_blank" rel="noopener noreferrer" class="link-btn blue">⌨️ Monkey Type</a>
-                <a href="https://artsandculture.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn orange">🎨 Google Arts & Culture</a>
-                <a href="../submit.html" class="link-btn violet">✍️ Message Mr. Savold</a>
+                <a href="https://monkeytype.com" target="_blank" rel="noopener noreferrer" class="link-btn indigo">⌨️ Monkey Type</a>
+                <a href="https://edclub.com/typingclub" target="_blank" rel="noopener noreferrer" class="link-btn green">⌨️ Open Typing Club</a>
+                <a href="https://artsandculture.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn blue">🏛️ Google Arts & Culture</a>
+                <a href="../submit.html" target="_blank" rel="noopener noreferrer" class="link-btn violet">✍️ Message Mr. Savold</a>
             </div>
         </div>
 
-        <!-- Right Column Checklist Card (50% Width on Desktop) -->
+        <!-- Checklist Column (50% Width) -->
         <div class="card">
-            <h2>✅ Today's Tasks</h2>
+            <h2>✅ Today's Checklist</h2>
             <ul class="checklist">
-                <li><input type="checkbox" id="task1"><label for="task1">Log in and check notes</label></li>
-<li><input type="checkbox" id="task2"><label for="task2">Complete typing practice</label></li>
-<li><input type="checkbox" id="task3"><label for="task3">Explore Arts & Culture</label></li>
-<li><input type="checkbox" id="task4"><label for="task4">Send Mr. Savold a message</label></li>
-
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Complete 15 minutes of typing practice</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Log accuracy on Monkey Type</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Explore cultural art collections</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4">Send Mr. Savold a daily summary!</label>
+                </li>
             </ul>
         </div>
 

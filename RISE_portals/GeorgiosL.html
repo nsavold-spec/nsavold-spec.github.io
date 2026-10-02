@@ -11,7 +11,6 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            color: #2c3e50;
         }
 
         header {
@@ -45,7 +44,6 @@
             outline: 3px solid #ffffff;
         }
 
-        /* Full Width 2-Column Grid (Covers 100% width across 2 equal columns) */
         .portal-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -74,32 +72,17 @@
         }
 
         .focus-banner {
+            background-color: #eef9f1;
+            border: 2px solid #2ecc71;
             border-radius: 8px;
             padding: 12px 16px;
             margin-bottom: 15px;
             font-weight: bold;
+            color: #1e7e34;
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 1.1rem;
-        }
-
-        .focus-banner.green-banner {
-            background-color: #eef9f1;
-            border: 2px solid #2ecc71;
-            color: #1e7e34;
-        }
-
-        .focus-banner.blue-banner {
-            background-color: #ebf5fb;
-            border: 2px solid #3498db;
-            color: #1b4f72;
-        }
-
-        .focus-banner.purple-banner {
-            background-color: #f5eeed;
-            border: 2px solid #9b59b6;
-            color: #512e5f;
         }
 
         .notes-box {
@@ -157,15 +140,6 @@
             outline: 3px solid #f1c40f;
         }
 
-        .link-btn.red { background-color: #e74c3c; }
-        .link-btn.red:hover { background-color: #c0392b; }
-
-        .link-btn.orange { background-color: #e67e22; }
-        .link-btn.orange:hover { background-color: #d35400; }
-
-        .link-btn.yellow { background-color: #f1c40f; color: #2c3e50; }
-        .link-btn.yellow:hover { background-color: #f39c12; color: #ffffff; }
-
         .link-btn.green { background-color: #2ecc71; }
         .link-btn.green:hover { background-color: #27ae60; }
 
@@ -177,6 +151,9 @@
 
         .link-btn.violet { background-color: #9b59b6; }
         .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
 
         .checklist {
             list-style: none;
@@ -198,7 +175,7 @@
             height: 22px;
             cursor: pointer;
         }
-</style>
+    </style>
 </head>
 <body>
 
@@ -209,35 +186,50 @@
 
     <div class="portal-grid">
 
-        <!-- Top Banner & Notes (Spans full width across top) -->
+        <!-- Banner & Notes -->
         <div class="card" style="grid-column: 1 / -1;">
-            <div class="focus-banner blue-banner">🖱️ <strong>Primary Focus: Motor Practice & Relaxation (Level 1)</strong></div>
+            <div class="focus-banner">
+                🎯 <strong>Primary Focus: Welcome & Motor Exploration</strong>
+            </div>
             <h2>📝 Notes from Mr. Savold</h2>
             <div class="notes-box">
-                <p><strong>Welcome Georgios!</strong> 🇬🇷 <em>(Currently in Greece - ready for when you return!)</em><br>Today's Goal: Mouse clicking & fun activities.</p>
+                <p><strong>Today's Goal:</strong> Welcome back! Start with simple mouse games and piano practice.</p>
+                <p><em>Glad to have you with us in the lab today!</em></p>
             </div>
         </div>
 
-        <!-- Left Column Card (50% Width on Desktop) -->
+        <!-- Quick Links Column (50% Width) -->
         <div class="card">
-            <h2>🚀 Georgios' Quick Links</h2>
+            
+            <h2>🚀 Georgios L.'s Quick Links</h2>
             <div class="link-list">
-                <a href="https://tinyfingers.net/" target="_blank" rel="noopener noreferrer" class="link-btn orange">🖱️ Tiny Fingers Clicking Games</a>
-                <a href="https://www.donttap.com/" target="_blank" rel="noopener noreferrer" class="link-btn red">🖱️ Don't Tap the White Tile</a>
-                <a href="https://www.nga.gov/games/paint-n-play/" target="_blank" rel="noopener noreferrer" class="link-btn green">🎨 Paint & Play</a>
+                <a href="https://tinyfingers.net/" target="_blank" rel="noopener noreferrer" class="link-btn orange">🖱️ Tiny Fingers Games</a>
+                <a href="https://donttap.com" target="_blank" rel="noopener noreferrer" class="link-btn blue">🖱️ Don't Tap The White Tile</a>
+                <a href="https://www.nga.gov/games/paint-n-play/" target="_blank" rel="noopener noreferrer" class="link-btn green">🎨 Paint & Play (NGA)</a>
                 <a href="https://www.onlinepianist.com/virtual-piano" target="_blank" rel="noopener noreferrer" class="link-btn violet">🎹 Virtual Piano</a>
-                <a href="../submit.html" class="link-btn blue">✍️ Message Mr. Savold</a>
             </div>
         </div>
 
-        <!-- Right Column Checklist Card (50% Width on Desktop) -->
+        <!-- Checklist Column (50% Width) -->
         <div class="card">
-            <h2>✅ Today's Tasks</h2>
+            <h2>✅ Today's Checklist</h2>
             <ul class="checklist">
-                <li><input type="checkbox" id="task1"><label for="task1">Log in and check notes</label></li>
-<li><input type="checkbox" id="task2"><label for="task2">Practice mouse clicking games</label></li>
-<li><input type="checkbox" id="task3"><label for="task3">Try free draw or Virtual Piano</label></li>
-
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Log in and check notes</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Practice clicking on Tiny Fingers</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Play music on Virtual Piano</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4">Say hello to Mr. Savold!</label>
+                </li>
             </ul>
         </div>
 
