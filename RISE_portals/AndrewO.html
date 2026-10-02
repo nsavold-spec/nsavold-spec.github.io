@@ -3,39 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew's Student Portal</title>
+    <title>Andrew O.'s Learning Portal | Mr. Savold's Class</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            color: #2c3e50;
         }
 
         header {
-            text-align: center;
             background-color: #2c3e50;
             color: white;
-            padding: 24px;
+            padding: 20px 24px;
             border-radius: 12px;
             margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 2.2rem;
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .home-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.1s ease;
+        }
+
+        .home-btn:hover, .home-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #ffffff;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            background-color: #ffffff;
-            padding: 24px;
+            background-color: white;
+            padding: 22px;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            line-height: 1.6;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 8px;
+            font-size: 1.35rem;
+        }
+
+        /* Highlighted Typing Badge / Banner */
+        .focus-banner {
+            background-color: #eef9f1;
+            border: 2px solid #2ecc71;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #1e7e34;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.1rem;
+        }
+
+        .notes-box {
+            background-color: #fff9db;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #333;
         }
 
         .credential-box {
@@ -44,64 +96,144 @@
             padding: 16px;
             margin: 15px 0;
             border-radius: 6px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         .credential-box code {
             background-color: #ffffff;
-            padding: 2px 8px;
+            padding: 3px 8px;
             border-radius: 4px;
-            border: 1px solid #ccc;
+            border: 1px solid #bdc3c7;
             font-family: monospace;
             font-weight: bold;
             color: #d35400;
+            font-size: 1.15rem;
         }
 
-        .btn-group {
+        .link-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .link-btn {
             display: block;
+            color: white;
             text-decoration: none;
-            padding: 16px 20px;
+            padding: 14px 20px;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: bold;
             text-align: center;
-            color: #ffffff;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
         }
 
-        .blue { background-color: #3498db; }
-        .blue:hover { background-color: #2980b9; }
+        .link-btn:hover, .link-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #f1c40f;
+        }
 
-        .green { background-color: #2ecc71; }
-        .green:hover { background-color: #27ae60; }
+        .link-btn.green { background-color: #2ecc71; }
+        .link-btn.green:hover { background-color: #27ae60; }
+
+        .link-btn.blue { background-color: #3498db; }
+        .link-btn.blue:hover { background-color: #2980b9; }
+
+        .link-btn.indigo { background-color: #3f51b5; }
+        .link-btn.indigo:hover { background-color: #303f9f; }
+
+        .link-btn.violet { background-color: #9b59b6; }
+        .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f5;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>👋 Welcome, Andrew!</h1>
+        <h1>👋 Welcome, Andrew O.!</h1>
+        <a href="../index.html" class="home-btn">🏠 Main Portal</a>
     </header>
 
-    <div class="card">
-        <h2>ℹ️ Information for Aides, Teachers, & Parents</h2>
-        <p>Please use the credentials below to log Andrew into his typing programs and learning websites:</p>
+    <div class="portal-grid">
 
-        <div class="credential-box">
-            <strong>Username / Email:</strong> <code>nichsavo+andrew@gmail.com</code><br><br>
-            <strong>Password:</strong> <code>Andrew123</code>
+        <!-- Banner & Notes -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="focus-banner">
+                🎯 <strong>Primary Focus: Keyboarding & Typing Practice</strong>
+            </div>
+            <h2>📝 Notes from Mr. Savold</h2>
+            <div class="notes-box">
+                <p><strong>Today's Goal:</strong> Work on your typing skills! An aide or teacher can help log you in using the credentials below.</p>
+                <p><em>Goal: Complete 15 minutes of Typing Club, then try KidsType or Monkey Type!</em></p>
+            </div>
         </div>
 
-        <div class="btn-group">
-            <a href="https://edclub.com/typingclub" target="_blank" rel="noopener noreferrer" class="link-btn green">⌨️ Open Typing Club</a>
-            <a href="https://nsavold-spec.github.io/" class="link-btn blue">🏠 Return to Main Homepage</a>
+        <!-- Aide Credentials & Typing Links -->
+        <div class="card">
+            <h2>ℹ️ Typing Login (Aides & Teachers)</h2>
+            <p style="margin-top: 0; color: #555;">Use these credentials to log Andrew into his Typing Club account:</p>
+
+            <div class="credential-box">
+                <strong>Username / Email:</strong><br>
+                <code>nichsavo+andrew@gmail.com</code><br><br>
+                <strong>Password:</strong><br>
+                <code>Andrew123</code>
+            </div>
+
+            <h2>⌨️ Andrew's Typing Links</h2>
+            <div class="link-list">
+                <a href="https://edclub.com/typingclub" target="_blank" rel="noopener noreferrer" class="link-btn green">⌨️ Open Typing Club</a>
+                <a href="https://kidztype.com" target="_blank" rel="noopener noreferrer" class="link-btn blue">⌨️ KidsType Games</a>
+                <a href="https://monkeytype.com" target="_blank" rel="noopener noreferrer" class="link-btn indigo">⌨️ Monkey Type</a>
+                <a href="../submit.html" class="link-btn violet">✍️ Message Mr. Savold</a>
+            </div>
         </div>
+
+        <!-- Checklist -->
+        <div class="card">
+            <h2>✅ Today's Checklist</h2>
+            <ul class="checklist">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Log into Typing Club with aide support</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Complete 15 minutes of typing lessons</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Practice on KidsType or Monkey Type</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task4">
+                    <label for="task4">Send Mr. Savold a quick message!</label>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
 </body>
