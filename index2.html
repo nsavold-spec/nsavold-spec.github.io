@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Computer Science with Mr. Savold!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        h1 { margin: 0; font-size: 2rem; }
+        p.subtitle { margin: 8px 0 0 0; font-size: 1.1rem; color: #ecf0f1; }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .category {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 8px;
+            font-size: 1.35rem;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .link-btn, .form-btn {
+            display: block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .link-btn:hover, .link-btn:focus,
+        .form-btn:hover, .form-btn:focus,
+        input:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #f1c40f;
+        }
+
+        .link-btn.red, .form-btn.red { background-color: #e74c3c; }
+        .link-btn.red:hover, .form-btn.red:hover { background-color: #c0392b; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
+
+        .link-btn.yellow { background-color: #f1c40f; color: #2c3e50; }
+        .link-btn.yellow:hover { background-color: #f39c12; color: #ffffff; }
+
+        .link-btn.green { background-color: #2ecc71; }
+        .link-btn.green:hover { background-color: #27ae60; }
+
+        .link-btn.blue { background-color: #3498db; }
+        .link-btn.blue:hover { background-color: #2980b9; }
+
+        .link-btn.indigo { background-color: #3f51b5; }
+        .link-btn.indigo:hover { background-color: #303f9f; }
+
+        .link-btn.violet { background-color: #9b59b6; }
+        .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .coming-soon-box {
+            background-color: #f8f9fa;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label { font-weight: bold; color: #2c3e50; font-size: 1rem; }
+        .form-group input { padding: 12px; font-size: 1rem; border: 2px solid #bdc3c7; border-radius: 6px; }
+
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            display: none;
+            margin: 4px 0 0 0;
+            font-size: 0.95rem;
+        }
+    </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const usernameInput = document.getElementById('username').value.trim().toLowerCase();
+            const passwordInput = document.getElementById('password').value.trim();
+            const errorElement = document.getElementById('login-error');
+
+            const students = {
+                "nicks": { pass: "NS123", url: "/RISE_portals/NickS.html" },
+                "tristana": { pass: "TA123", url: "/RISE_portals/TristanA.html" },
+                "anthonyb": { pass: "AB123", url: "/RISE_portals/AnthonyB.html" },
+                "alanab": { pass: "AB123", url: "/RISE_portals/AlanaB.html" },
+                "nataliaa": { pass: "NLA123", url: "/RISE_portals/NataliaA.html" },
+                "nataliala": { pass: "NLA123", url: "/RISE_portals/NataliaA.html" },
+                "aidenm": { pass: "AM123", url: "/RISE_portals/AidenM.html" },
+                "devr": { pass: "DR123", url: "/RISE_portals/DevR.html" },
+                "derekm": { pass: "DSM123", url: "/RISE_portals/DerekM.html" },
+                "dereksm": { pass: "DSM123", url: "/RISE_portals/DerekM.html" },
+                "stevenz": { pass: "STZ123", url: "/RISE_portals/StevenZ.html" },
+                "steventz": { pass: "STZ123", url: "/RISE_portals/StevenZ.html" },
+                "eduanb": { pass: "EB123", url: "/RISE_portals/EduanB.html" },
+                "elizabethd": { pass: "ED123", url: "/RISE_portals/ElizabethD.html" },
+                "israelv": { pass: "IV123", url: "/RISE_portals/IsraelV.html" },
+                "jairom": { pass: "JM123", url: "/RISE_portals/JairoM.html" },
+                "jaydenb": { pass: "JBT123", url: "/RISE_portals/JaydenB.html" },
+                "jaydenbt": { pass: "JBT123", url: "/RISE_portals/JaydenB.html" },
+                "rowans": { pass: "RS123", url: "/RISE_portals/RowanS.html" }
+            };
+
+            if (students[usernameInput] && students[usernameInput].pass === passwordInput) {
+                window.location.href = students[usernameInput].url;
+            } else {
+                errorElement.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Computer Science with Mr. Savold!</h1>
+        <p class="subtitle">Click a button below to go to today's websites.</p>
+    </header>
+
+    <div class="categories-grid">
+
+        <!-- 1. Typing Practice -->
+        <div class="category">
+            <h2>⌨️ Typing Practice</h2>
+            <div class="link-list">
+                <a href="https://edclub.com/typingclub" target="_blank" class="link-btn blue">Typing Club</a>
+                <a href="https://monkeytype.com" target="_blank" class="link-btn green">Monkey Type</a>
+                <a href="https://kidztype.com" target="_blank" class="link-btn indigo">KidsType</a>
+                <a href="https://morse.withgoogle.com/learn/" target="_blank" class="link-btn violet">Learn Morse Code!</a>
+            </div>
+        </div>
+
+        <!-- 2. Computer Science -->
+        <div class="category">
+            <h2>💻 Computer Science</h2>
+            <div class="coming-soon-box">
+                🚀 <strong>Coming Soon!</strong><br>
+                Exciting coding projects & activities are on the way.
+            </div>
+        </div>
+
+        <!-- 3. Reading -->
+        <div class="category">
+            <h2>📚 Reading & Language Arts</h2>
+            <div class="link-list">
+                <a href="https://www.starfall.com/h/ltr-classic/" target="_blank" class="link-btn green">Reading Practice Games (Starfall)</a>
+            </div>
+        </div>
+
+        <!-- 4. Math & Science -->
+        <div class="category">
+            <h2>🧪 Math & Science</h2>
+            <div class="link-list">
+                <a href="https://www.amnh.org/explore/ology" target="_blank" class="link-btn orange">AMNH Ologies</a>
+                <a href="https://artsandculture.google.com/search?q=dinosaurs" target="_blank" class="link-btn yellow">Dinosaurs! 🦖</a>
+            </div>
+        </div>
+
+        <!-- 5. Music & Art -->
+        <div class="category">
+            <h2>🎼 Music & Visual Arts 🎨</h2>
+            <div class="link-list">
+                <a href="https://artsandculture.google.com/" target="_blank" class="link-btn red">Google Arts & Culture</a>
+                <a href="https://www.classicsforkids.com/" target="_blank" class="link-btn green">Classic Music for Kids</a>
+                <a href="https://musiclab.chromeexperiments.com/" target="_blank" class="link-btn orange">Chrome Music Lab</a>
+                <a href="https://www.onlinepianist.com/virtual-piano" target="_blank" class="link-btn violet">Virtual Piano</a>
+                <a href="https://artsandculture.google.com/experiment/splash-canvas/vQFCtQB7FDnYkA" target="_blank" class="link-btn blue">Splash Canvas</a>
+            </div>
+        </div>
+
+        <!-- 6. Low Effort / Video-based Games -->
+        <div class="category">
+            <h2>🎬 Watch & Relax (Low Effort / Videos)</h2>
+            <div class="link-list">
+                <a href="https://pbskids.org/games" target="_blank" class="link-btn orange">PBS Kids Games & Shows</a>
+            </div>
+        </div>
+
+        <!-- 7. Active Skill Games & Puzzles -->
+        <div class="category">
+            <h2>🧩 Active Games & Puzzles</h2>
+            <div class="link-list">
+                <a href="https://abcya.com/" target="_blank" class="link-btn green">ABCYA Games</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-guangzhou-museum-collections/XAEXrP-meIeVZw" target="_blank" class="link-btn red">Puzzle Party: Chinese Artwork</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-czech-national-library-edition/WAFwFb8_h5Fvew" target="_blank" class="link-btn yellow">Puzzle Party: Czech Library</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-historic-jeddah/7gE-JKyfrgz4Fw" target="_blank" class="link-btn blue">Puzzle Party: Historic Jeddah</a>
+            </div>
+        </div>
+
+        <!-- 8. Communication & Messaging -->
+        <div class="category">
+            <h2>✍️ Classroom Messages</h2>
+            <div class="link-list">
+                <a href="submit.html" class="link-btn violet">✍ Send Mr. Savold a Message</a>
+            </div>
+        </div>
+
+        <!-- 9. Student / Teacher Login -->
+        <div class="category">
+            <h2>🔐 Student Portal Login</h2>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="e.g. NickS" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="e.g. NS123" required>
+                </div>
+                <p id="login-error" class="error-message">⚠️ Incorrect username or password. Please try again.</p>
+                <button type="submit" class="form-btn red">Log In</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
