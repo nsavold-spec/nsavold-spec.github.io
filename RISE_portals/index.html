@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Savold's Class | Learning Portal Hub</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #ecf0f1;
+        }
+
+        .login-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+
+        .login-card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🏫 Mr. Savold's Learning Portal</h1>
+            <p>Welcome! Enter your username and password to open your student page.</p>
+        </header>
+
+        <div class="login-card">
+            <h2>🔑 Student Login</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="e.g. christinam" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="e.g. CM123" required>
+                </div>
+                <button type="submit" class="login-btn">🚀 Open My Portal</button>
+                <div id="errorMsg" class="error-msg">Incorrect username or password. Please try again!</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const students = {
+            "nicks": { pass: "NS123", url: "RISE_portals/NickS.html" },
+            "tonyb": { pass: "TB123", url: "RISE_portals/TonyB.html" },
+            "anthonyb": { pass: "AB123", url: "RISE_portals/AnthonyB.html" },
+            "andrewo": { pass: "AO123", url: "RISE_portals/AndrewO.html" },
+            "tristana": { pass: "TA123", url: "RISE_portals/TristanA.html" },
+            "alanab": { pass: "AB123", url: "RISE_portals/AlanaB.html" },
+            "nataliaa": { pass: "NA123", url: "RISE_portals/NataliaA.html" },
+            "nataliala": { pass: "NLA123", url: "RISE_portals/NataliaA.html" },
+            "aidenm": { pass: "AM123", url: "RISE_portals/AidenM.html" },
+            "devr": { pass: "DR123", url: "RISE_portals/DevR.html" },
+            "derekm": { pass: "DSM123", url: "RISE_portals/DerekM.html" },
+            "dereksm": { pass: "DSM123", url: "RISE_portals/DerekM.html" },
+            "stevenz": { pass: "ST123", url: "RISE_portals/StevenZ.html" },
+            "steventz": { pass: "STZ123", url: "RISE_portals/StevenZ.html" },
+            "eduanb": { pass: "EB123", url: "RISE_portals/EduanB.html" },
+            "elizabethd": { pass: "ED123", url: "RISE_portals/ElizabethD.html" },
+            "israelv": { pass: "IV123", url: "RISE_portals/IsraelV.html" },
+            "jairom": { pass: "JM123", url: "RISE_portals/JairoM.html" },
+            "jaydenb": { pass: "JB123", url: "RISE_portals/JaydenB.html" },
+            "jaydenbt": { pass: "JBT123", url: "RISE_portals/JaydenB.html" },
+            "rowans": { pass: "RS123", url: "RISE_portals/RowanS.html" },
+            "christinam": { pass: "CM123", url: "RISE_portals/ChristinaM.html" },
+            "georgiosl": { pass: "GL123", url: "RISE_portals/GeorgiosL.html" }
+        };
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim().toLowerCase();
+            const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (students[user] && students[user].pass === pass) {
+                window.location.href = students[user].url;
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
