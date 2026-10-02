@@ -13,6 +13,7 @@
             margin: 0 auto;
         }
 
+        /* Large, clear header */
         header {
             text-align: center;
             background-color: #2c3e50;
@@ -25,12 +26,14 @@
         h1 { margin: 0; font-size: 2rem; }
         p.subtitle { margin: 8px 0 0 0; font-size: 1.1rem; color: #ecf0f1; }
 
+        /* Responsive Two-Column Grid */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 20px;
         }
 
+        /* Category container */
         .category {
             background-color: white;
             padding: 20px;
@@ -48,6 +51,7 @@
             font-size: 1.35rem;
         }
 
+        /* Link list layout */
         .link-list {
             display: flex;
             flex-direction: column;
@@ -55,6 +59,7 @@
             margin-top: 10px;
         }
 
+        /* High Visibility Buttons */
         .link-btn, .form-btn {
             display: block;
             background-color: #3498db;
@@ -77,6 +82,7 @@
             outline: 3px solid #f1c40f;
         }
 
+        /* Full ROYGBIV Palette */
         .link-btn.red, .form-btn.red { background-color: #e74c3c; }
         .link-btn.red:hover, .form-btn.red:hover { background-color: #c0392b; }
 
@@ -141,6 +147,7 @@
             const passwordInput = document.getElementById('password').value.trim();
             const errorElement = document.getElementById('login-error');
 
+            // Student Roster Lookup Table
             const students = {
                 "nicks": { pass: "NS123", url: "/RISE_portals/NickS.html" },
                 "tristana": { pass: "TA123", url: "/RISE_portals/TristanA.html" },
@@ -161,6 +168,9 @@
                 "jaydenb": { pass: "JBT123", url: "/RISE_portals/JaydenB.html" },
                 "jaydenbt": { pass: "JBT123", url: "/RISE_portals/JaydenB.html" },
                 "rowans": { pass: "RS123", url: "/RISE_portals/RowanS.html" }
+                "christinam": { pass: "CM123", url: "/RISE_portals/ChristinaM.html" }
+                "tonyb": { pass: "Tony123", url: "RISE_portals/TonyB.html" },
+                "andrewo": { pass: "Andrew123", url: "RISE_portals/AndrewO.html" }
             };
 
             if (students[usernameInput] && students[usernameInput].pass === passwordInput) {
@@ -191,7 +201,16 @@
             </div>
         </div>
 
-        <!-- 2. Computer Science -->
+        <!-- 2. Mouse Practice -->
+        <div class="category">
+            <h2>🖱️ Mouse Practice</h2>
+            <div class="link-list">
+                <a href="https://www.donttap.com/" target="_blank" class="link-btn red">Don't Tap the White Tile (Mr. S Favorite!)</a>
+                <a href="https://tinyfingers.net/" target="_blank" class="link-btn orange">Simple Clicking Games</a>
+            </div>
+        </div>
+
+        <!-- 3. Computer Science -->
         <div class="category">
             <h2>💻 Computer Science</h2>
             <div class="coming-soon-box">
@@ -200,7 +219,7 @@
             </div>
         </div>
 
-        <!-- 3. Reading -->
+        <!-- 4. Reading & Language Arts -->
         <div class="category">
             <h2>📚 Reading & Language Arts</h2>
             <div class="link-list">
@@ -208,47 +227,59 @@
             </div>
         </div>
 
-        <!-- 4. Math & Science -->
+        <!-- 5. Museums -->
         <div class="category">
-            <h2>🧪 Math & Science</h2>
+            <h2>🏛️ Museums & Science</h2>
             <div class="link-list">
                 <a href="https://www.amnh.org/explore/ology" target="_blank" class="link-btn orange">AMNH Ologies</a>
-                <a href="https://artsandculture.google.com/search?q=dinosaurs" target="_blank" class="link-btn yellow">Dinosaurs! 🦖</a>
+                <a href="https://artsandculture.google.com/partner" target="_blank" class="link-btn yellow">Museum Collections</a>
+                <a href="https://artsandculture.google.com/search?q=dinosaurs" target="_blank" class="link-btn green">Dinosaurs! 🦖</a>
             </div>
         </div>
 
-        <!-- 5. Music & Art -->
+        <!-- 6. Music & Visual Arts -->
         <div class="category">
-            <h2>🎼 Music & Visual Arts 🎨</h2>
+            <h2>🎼 Music & Visual Arts</h2>
             <div class="link-list">
                 <a href="https://artsandculture.google.com/" target="_blank" class="link-btn red">Google Arts & Culture</a>
                 <a href="https://www.classicsforkids.com/" target="_blank" class="link-btn green">Classic Music for Kids</a>
                 <a href="https://musiclab.chromeexperiments.com/" target="_blank" class="link-btn orange">Chrome Music Lab</a>
                 <a href="https://www.onlinepianist.com/virtual-piano" target="_blank" class="link-btn violet">Virtual Piano</a>
-                <a href="https://artsandculture.google.com/experiment/splash-canvas/vQFCtQB7FDnYkA" target="_blank" class="link-btn blue">Splash Canvas</a>
             </div>
         </div>
 
-        <!-- 6. Low Effort / Video-based Games -->
+        <!-- 7. Free Draw -->
         <div class="category">
-            <h2>🎬 Watch & Relax (Low Effort / Videos)</h2>
+            <h2>🎨 Free Draw</h2>
             <div class="link-list">
-                <a href="https://pbskids.org/games" target="_blank" class="link-btn orange">PBS Kids Games & Shows</a>
+                <a href="https://artsandculture.google.com/experiment/splash-canvas/vQFCtQB7FDnYkA" target="_blank" class="link-btn blue">Splash Canvas</a>
+                <a href="https://www.nga.gov/games/paint-n-play/" target="_blank" class="link-btn violet">Paint & Play (NGA)</a>
             </div>
         </div>
 
-        <!-- 7. Active Skill Games & Puzzles -->
+        <!-- 8. Games -->
         <div class="category">
-            <h2>🧩 Active Games & Puzzles</h2>
+            <h2>🎮 Games</h2>
             <div class="link-list">
                 <a href="https://abcya.com/" target="_blank" class="link-btn green">ABCYA Games</a>
-                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-guangzhou-museum-collections/XAEXrP-meIeVZw" target="_blank" class="link-btn red">Puzzle Party: Chinese Artwork</a>
-                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-czech-national-library-edition/WAFwFb8_h5Fvew" target="_blank" class="link-btn yellow">Puzzle Party: Czech Library</a>
-                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-historic-jeddah/7gE-JKyfrgz4Fw" target="_blank" class="link-btn blue">Puzzle Party: Historic Jeddah</a>
+                <a href="https://pbskids.org/games" target="_blank" class="link-btn orange">PBS Kids Games & Shows</a>
+                <a href="https://www.coolmathgames.com/" target="_blank" class="link-btn orange">Cool Math Games</a>
             </div>
         </div>
 
-        <!-- 8. Communication & Messaging -->
+        <!-- 9. Puzzles -->
+        <div class="category">
+            <h2>🧩 Puzzles</h2>
+            <div class="link-list">
+                <a href="https://www.jigsawexplorer.com/" target="_blank" class="link-btn blue">Online Puzzles 1 (Jigsaw Explorer)</a>
+                <a href="https://www.jigsawplanet.com/" target="_blank" class="link-btn indigo">Online Puzzles 2 (Jigsaw Planet)</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-guangzhou-museum-collections/XAEXrP-meIeVZw" target="_blank" class="link-btn red">Puzzle Party: Chinese Artwork</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-czech-national-library-edition/WAFwFb8_h5Fvew" target="_blank" class="link-btn yellow">Puzzle Party: Czech Library</a>
+                <a href="https://artsandculture.google.com/experiment/puzzle-party-%E2%80%94-historic-jeddah/7gE-JKyfrgz4Fw" target="_blank" class="link-btn violet">Puzzle Party: Historic Jeddah</a>
+            </div>
+        </div>
+
+        <!-- 10. Communication & Messaging -->
         <div class="category">
             <h2>✍️ Classroom Messages</h2>
             <div class="link-list">
@@ -256,7 +287,7 @@
             </div>
         </div>
 
-        <!-- 9. Student / Teacher Login -->
+        <!-- 11. Student / Teacher Login -->
         <div class="category">
             <h2>🔐 Student Portal Login</h2>
             <form class="login-form" onsubmit="handleLogin(event)">
