@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elizabeth D.'s Learning Portal | Mr. Savold's Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 { margin: 0; font-size: 1.8rem; }
+
+        .home-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.1s ease;
+        }
+
+        .home-btn:hover, .home-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #ffffff;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .notes-box {
+            background-color: #fff9db;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .link-btn {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .link-btn:hover, .link-btn:focus {
+            transform: translateY(-2px);
+            outline: 3px solid #f1c40f;
+        }
+
+        .link-btn.blue { background-color: #3498db; }
+        .link-btn.blue:hover { background-color: #2980b9; }
+
+        .link-btn.green { background-color: #2ecc71; }
+        .link-btn.green:hover { background-color: #27ae60; }
+
+        .link-btn.violet { background-color: #9b59b6; }
+        .link-btn.violet:hover { background-color: #8e44ad; }
+
+        .link-btn.orange { background-color: #e67e22; }
+        .link-btn.orange:hover { background-color: #d35400; }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f5;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>👋 Welcome, Elizabeth D.!</h1>
+        <a href="../index.html" class="home-btn">🏠 Main Portal</a>
+    </header>
+
+    <div class="portal-grid">
+
+        <!-- Notes Section -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>📝 Notes from Mr. Savold</h2>
+            <div class="notes-box">
+                <p><strong>Today's Goal:</strong> Complete 10 minutes of Typing Club, then work on your code project!</p>
+                <p><em>Remember to raise your hand or send a message if you need help with step 3.</em></p>
+            </div>
+        </div>
+
+        <!-- Student Links -->
+        <div class="card">
+            <h2>🚀 Elizabeth D.'s Quick Links</h2>
+            <div class="link-list">
+                <a href="https://edclub.com/typingclub" target="_blank" class="link-btn blue">⌨️ My Typing Club</a>
+                <a href="https://scratch.mit.edu/" target="_blank" class="link-btn orange">🐱 My Scratch Projects</a>
+                <a href="../submit.html" class="link-btn violet">✍️ Message Mr. Savold</a>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="card">
+            <h2>✅ Today's Tasks</h2>
+            <ul class="checklist">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Log in and check notes</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Practice typing for 10 minutes</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Work on Computer Science project</label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
